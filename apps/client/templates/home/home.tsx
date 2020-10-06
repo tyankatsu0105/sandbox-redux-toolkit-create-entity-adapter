@@ -26,23 +26,43 @@ export const Component = (): React.ReactElement => {
         handleChangeActiveTab={handleChangeActiveTab}
         tabItems={[{ label: 'a' }, { label: 'b' }, { label: 'c' }]}
       />
-      <MaterialUI.Box marginTop={2}>
+      <MaterialUI.Box marginTop={2} minHeight="100vh">
         <MaterialUI.Grid container spacing={1}>
           <MaterialUI.Grid item xs={6}>
             <MaterialUI.Box padding={2}>
               <Componnets.TabPanel.Component hidden={isActiveTab !== 0}>
-                aaaaaaaaaaaaaaaaaa
+                <MaterialUI.Typography variant="h3">
+                  Create
+                </MaterialUI.Typography>
+                <MaterialUI.Box marginTop={2}>
+                  <Componnets.Create.Component />
+                </MaterialUI.Box>
               </Componnets.TabPanel.Component>
               <Componnets.TabPanel.Component hidden={isActiveTab !== 1}>
-                bbbbbbbbbbbbbbbbbbb
+                <MaterialUI.Typography variant="h3">
+                  Update
+                </MaterialUI.Typography>
+                <MaterialUI.Box marginTop={2}>
+                  <Componnets.Update.Component />
+                </MaterialUI.Box>
               </Componnets.TabPanel.Component>
               <Componnets.TabPanel.Component hidden={isActiveTab !== 2}>
-                ccccccccccccccccc
+                <MaterialUI.Typography variant="h3">
+                  Delete
+                </MaterialUI.Typography>
+                <MaterialUI.Box marginTop={2}>
+                  <Componnets.Delete.Component />
+                </MaterialUI.Box>
               </Componnets.TabPanel.Component>
             </MaterialUI.Box>
           </MaterialUI.Grid>
           <MaterialUI.Grid item xs={6}>
-            <StyledCard>bbbbbbbb</StyledCard>
+            <StyledCard>
+              <MaterialUI.Typography variant="h3">Read</MaterialUI.Typography>
+              <MaterialUI.Box marginTop={2}>
+                <Componnets.Read.Component />
+              </MaterialUI.Box>
+            </StyledCard>
           </MaterialUI.Grid>
         </MaterialUI.Grid>
       </MaterialUI.Box>
