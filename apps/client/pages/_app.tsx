@@ -1,29 +1,46 @@
 import React from 'react';
 import * as ReactRedux from 'react-redux';
 
-import { AppProps } from 'next/app';
-import Head from 'next/head';
+import {
+  ThemeProvider as MaterialThemeProvider,
+  StylesProvider,
+} from '@material-ui/core/styles';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import { theme } from '~client/libs/theme';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-import 'minireset.css';
+import { AppProps } from 'next/app';
 
 import { createStore } from '~client/store';
+
+import * as Layouts from '~client/layouts';
 
 const store = createStore();
 
 const CustomApp = ({ Component, pageProps }: AppProps) => {
+  // Remove the server-side injected CSS.(https://material-ui.com/guides/server-rendering/)
+  React.useEffect(() => {
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles && jssStyles.parentNode) {
+      jssStyles.parentNode.removeChild(jssStyles);
+    }
+  }, []);
+
   return (
     <ReactRedux.Provider store={store}>
-      <Head>
-        <title>Welcome to client!</title>
-      </Head>
-      <div>
-        <header>
-          <h1>Welcome to client!</h1>
-        </header>
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </div>
+      <StylesProvider injectFirst>
+        <MaterialThemeProvider theme={theme}>
+          <StyledThemeProvider theme={theme}>
+            <CssBaseline />
+            <Layouts.Container.Component>
+              <Layouts.Header.Component />
+              <Layouts.Main.Component>
+                <Component {...pageProps} />
+              </Layouts.Main.Component>
+            </Layouts.Container.Component>
+          </StyledThemeProvider>
+        </MaterialThemeProvider>
+      </StylesProvider>
     </ReactRedux.Provider>
   );
 };

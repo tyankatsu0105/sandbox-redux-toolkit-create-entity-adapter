@@ -1,7 +1,9 @@
 import * as React from 'react';
 
+import * as Templates from '~client/templates';
+
 const Index = () => {
-  return <div>aaaaaaa</div>;
+  return <Templates.Home.Component />;
 };
 
 export default Index;
