@@ -42,7 +42,7 @@ export const Component: React.FC = (props) => {
           name="name"
           label="name"
           variant="outlined"
-          inputRef={register({ required: true })}
+          inputRef={register}
           error={!!errors.name}
           helperText={errors.name?.message}
         />
@@ -53,7 +53,7 @@ export const Component: React.FC = (props) => {
           label="age"
           variant="outlined"
           type="number"
-          inputRef={register({ required: true })}
+          inputRef={register}
           error={!!errors.age}
           helperText={errors.age?.message}
         />
