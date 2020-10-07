@@ -24,7 +24,12 @@ export const Component = (): React.ReactElement => {
       <Componnets.Tab.Component
         isActiveTab={isActiveTab}
         handleChangeActiveTab={handleChangeActiveTab}
-        tabItems={[{ label: 'a' }, { label: 'b' }, { label: 'c' }]}
+        tabItems={[
+          { label: 'Create' },
+          { label: 'Read' },
+          { label: 'Update' },
+          { label: 'Delete' },
+        ]}
       />
       <MaterialUI.Box marginTop={2} minHeight="100vh">
         <MaterialUI.Grid container spacing={1}>
@@ -38,7 +43,15 @@ export const Component = (): React.ReactElement => {
                   <Componnets.Create.Component />
                 </MaterialUI.Box>
               </Componnets.TabPanel.Component>
+
               <Componnets.TabPanel.Component hidden={isActiveTab !== 1}>
+                <MaterialUI.Typography variant="h3">Read</MaterialUI.Typography>
+                <MaterialUI.Box marginTop={2}>
+                  <Componnets.Read.Component />
+                </MaterialUI.Box>
+              </Componnets.TabPanel.Component>
+
+              <Componnets.TabPanel.Component hidden={isActiveTab !== 2}>
                 <MaterialUI.Typography variant="h3">
                   Update
                 </MaterialUI.Typography>
@@ -46,7 +59,8 @@ export const Component = (): React.ReactElement => {
                   <Componnets.Update.Component />
                 </MaterialUI.Box>
               </Componnets.TabPanel.Component>
-              <Componnets.TabPanel.Component hidden={isActiveTab !== 2}>
+
+              <Componnets.TabPanel.Component hidden={isActiveTab !== 3}>
                 <MaterialUI.Typography variant="h3">
                   Delete
                 </MaterialUI.Typography>
@@ -56,11 +70,12 @@ export const Component = (): React.ReactElement => {
               </Componnets.TabPanel.Component>
             </MaterialUI.Box>
           </MaterialUI.Grid>
+
           <MaterialUI.Grid item xs={6}>
             <StyledCard>
-              <MaterialUI.Typography variant="h3">Read</MaterialUI.Typography>
+              <MaterialUI.Typography variant="h3">Result</MaterialUI.Typography>
               <MaterialUI.Box marginTop={2}>
-                <Componnets.Read.Component />
+                <Componnets.Result.Component />
               </MaterialUI.Box>
             </StyledCard>
           </MaterialUI.Grid>
