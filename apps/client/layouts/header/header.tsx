@@ -22,6 +22,15 @@ export const Component = () => (
       </MaterialUI.Link>
       の説明
     </MaterialUI.Typography>
+
+    <MaterialUI.Typography variant="subtitle1" component="p">
+      <MaterialUI.Link
+        target="_blank"
+        href="https://github.com/tyankatsu0105/sandbox-redux-toolkit-create-entity-adapter"
+      >
+        GitHub Repository
+      </MaterialUI.Link>
+    </MaterialUI.Typography>
   </header>
 );
 
