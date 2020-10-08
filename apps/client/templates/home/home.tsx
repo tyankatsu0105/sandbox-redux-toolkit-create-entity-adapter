@@ -36,7 +36,7 @@ export const Component = (): React.ReactElement => {
           <MaterialUI.Grid item xs={6}>
             <MaterialUI.Box padding={2}>
               <Componnets.TabPanel.Component hidden={isActiveTab !== 0}>
-                <MaterialUI.Typography variant="h3">
+                <MaterialUI.Typography variant="h2">
                   Create
                 </MaterialUI.Typography>
                 <MaterialUI.Box marginTop={2}>
@@ -45,14 +45,14 @@ export const Component = (): React.ReactElement => {
               </Componnets.TabPanel.Component>
 
               <Componnets.TabPanel.Component hidden={isActiveTab !== 1}>
-                <MaterialUI.Typography variant="h3">Read</MaterialUI.Typography>
+                <MaterialUI.Typography variant="h2">Read</MaterialUI.Typography>
                 <MaterialUI.Box marginTop={2}>
                   <Componnets.Read.Component />
                 </MaterialUI.Box>
               </Componnets.TabPanel.Component>
 
               <Componnets.TabPanel.Component hidden={isActiveTab !== 2}>
-                <MaterialUI.Typography variant="h3">
+                <MaterialUI.Typography variant="h2">
                   Update
                 </MaterialUI.Typography>
                 <MaterialUI.Box marginTop={2}>
@@ -61,7 +61,7 @@ export const Component = (): React.ReactElement => {
               </Componnets.TabPanel.Component>
 
               <Componnets.TabPanel.Component hidden={isActiveTab !== 3}>
-                <MaterialUI.Typography variant="h3">
+                <MaterialUI.Typography variant="h2">
                   Delete
                 </MaterialUI.Typography>
                 <MaterialUI.Box marginTop={2}>
@@ -73,7 +73,7 @@ export const Component = (): React.ReactElement => {
 
           <MaterialUI.Grid item xs={6}>
             <StyledCard>
-              <MaterialUI.Typography variant="h3">
+              <MaterialUI.Typography variant="h2">
                 Redux Store Tree
               </MaterialUI.Typography>
               <MaterialUI.Box marginTop={2}>
