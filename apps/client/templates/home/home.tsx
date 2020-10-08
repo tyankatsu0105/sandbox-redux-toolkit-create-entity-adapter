@@ -31,7 +31,7 @@ export const Component = (): React.ReactElement => {
           { label: 'Delete' },
         ]}
       />
-      <MaterialUI.Box marginTop={2} minHeight="100vh">
+      <MaterialUI.Box marginTop={2}>
         <MaterialUI.Grid container spacing={1}>
           <MaterialUI.Grid item xs={6}>
             <MaterialUI.Box padding={2}>
@@ -73,7 +73,9 @@ export const Component = (): React.ReactElement => {
 
           <MaterialUI.Grid item xs={6}>
             <StyledCard>
-              <MaterialUI.Typography variant="h3">Result</MaterialUI.Typography>
+              <MaterialUI.Typography variant="h3">
+                Redux Store Tree
+              </MaterialUI.Typography>
               <MaterialUI.Box marginTop={2}>
                 <Componnets.Result.Component />
               </MaterialUI.Box>

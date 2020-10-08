@@ -9,7 +9,9 @@ import * as MaterialUI from '@material-ui/core';
 // component
 // ===============================
 export const Component: React.FC = (props) => (
-  <MaterialUI.Box padding={2}>{props.children}</MaterialUI.Box>
+  <MaterialUI.Box padding={2} minHeight="100vh">
+    {props.children}
+  </MaterialUI.Box>
 );
 
 // ===============================
