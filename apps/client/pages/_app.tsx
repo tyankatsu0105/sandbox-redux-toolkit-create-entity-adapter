@@ -21,8 +21,8 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
   // Remove the server-side injected CSS.(https://material-ui.com/guides/server-rendering/)
   React.useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles && jssStyles.parentNode) {
-      jssStyles.parentNode.removeChild(jssStyles);
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
 

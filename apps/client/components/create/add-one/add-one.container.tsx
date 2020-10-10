@@ -13,12 +13,11 @@ import * as Presentation from './add-one.presentation';
 // ===============================
 // types
 // ===============================
-type FormData = UsersEntity.User;
 
 // ===============================
 // schema
 // ===============================
-const schema = yup.object().shape<FormData>({
+const schema = yup.object().shape<UsersEntity.FormData['addOne']>({
   id: yup.number().integer().required(),
   name: yup.string().required(),
   age: yup.number().positive().integer().required(),
@@ -29,9 +28,11 @@ const schema = yup.object().shape<FormData>({
 // ===============================
 export const Component: React.FC = (props) => {
   const dispatch = ReactRedux.useDispatch();
-  const hookFormMethods = ReactHookForm.useForm<FormData>({
-    resolver: yupResolver(schema),
-  });
+  const hookFormMethods = ReactHookForm.useForm<UsersEntity.FormData['addOne']>(
+    {
+      resolver: yupResolver(schema),
+    }
+  );
 
   const onSubmit = hookFormMethods.handleSubmit((data) => {
     dispatch(EntitiesUsers.actions.addUser(data));

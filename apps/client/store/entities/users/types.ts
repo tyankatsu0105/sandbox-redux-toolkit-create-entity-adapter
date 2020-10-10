@@ -25,6 +25,7 @@ export type State = InitialState | ValidState;
 export type Payload = {
   action: {
     addUser: UsersEntity.User;
+    addUsers: UsersEntity.User[];
   };
   operation: {};
 };

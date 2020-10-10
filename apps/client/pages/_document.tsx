@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 
 export default class CustomDocument extends Document<{
@@ -7,7 +7,7 @@ export default class CustomDocument extends Document<{
 }> {
   render() {
     return (
-      <html>
+      <Html>
         <Head>
           {this.props.styleTags}
           <title>Welcome to client!</title>
@@ -20,7 +20,7 @@ export default class CustomDocument extends Document<{
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

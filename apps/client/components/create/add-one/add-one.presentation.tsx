@@ -10,7 +10,7 @@ import * as UsersEntity from '~client/application/domains/users/entity';
 // ===============================
 type Props = {
   onSubmit: () => void;
-  hookFormMethods: ReactHookForm.UseFormMethods<UsersEntity.User>;
+  hookFormMethods: ReactHookForm.UseFormMethods<UsersEntity.FormData['addOne']>;
 };
 
 // ===============================
