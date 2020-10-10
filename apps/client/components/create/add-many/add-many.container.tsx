@@ -2,12 +2,15 @@ import * as React from 'react';
 import * as ReactRedux from 'react-redux';
 
 import * as ReactHookForm from 'react-hook-form';
-import { DevTool } from '@hookform/devtools';
+import * as ReactHookFormDevTool from '@hookform/devtools';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import * as EntitiesUsers from '~client/store/entities/users';
 import * as UsersEntity from '~client/application/domains/users/entity';
+import * as FormEntity from '~client/application/domains/form/entity';
+
+import * as UIForm from '~client/store/ui/form';
 
 import * as Presentation from './add-many.presentation';
 
@@ -33,6 +36,11 @@ const schema = yup.object().shape<UsersEntity.FormData['addMany']>({
 // ===============================
 export const Component = (): React.ReactElement => {
   const dispatch = ReactRedux.useDispatch();
+
+  const activeReactHookFormDevTool = ReactRedux.useSelector(
+    UIForm.activeReactHookFormDevToolSelector
+  );
+
   const hookFormMethods = ReactHookForm.useForm<
     UsersEntity.FormData['addMany']
   >({
@@ -66,7 +74,10 @@ export const Component = (): React.ReactElement => {
         hookFormMethods={hookFormMethods}
         hookFormMethodsArray={hookFormMethodsArray}
       />
-      <DevTool control={hookFormMethods.control} />
+      {activeReactHookFormDevTool ===
+        FormEntity.activeReactHookFormDevTool.addMany && (
+        <ReactHookFormDevTool.DevTool control={hookFormMethods.control} />
+      )}
     </>
   );
 };

@@ -5,19 +5,40 @@ import * as MaterialUI from '@material-ui/core';
 import * as AddOne from './add-one';
 import * as AddMany from './add-many';
 
+import * as FormEntity from '~client/application/domains/form/entity';
+
 // ===============================
 // types
 // ===============================
-type Props = {};
+type Props = {
+  updateActiveReactHookFormDevTool: (
+    activeReactHookFormDevTool: FormEntity.activeReactHookFormDevTool
+  ) => void;
+};
 
 // ===============================
 // component
 // ===============================
-export const Component = (): React.ReactElement => {
+export const Component = (props: Props): React.ReactElement => {
   return (
     <>
       <MaterialUI.Box>
-        <MaterialUI.Typography variant="h3">addOne</MaterialUI.Typography>
+        <MaterialUI.Box display="flex" alignItems="flex-end">
+          <MaterialUI.Typography variant="h3">addOne</MaterialUI.Typography>
+          <MaterialUI.Box marginLeft={1}>
+            <MaterialUI.Button
+              type="button"
+              variant="outlined"
+              onClick={() =>
+                props.updateActiveReactHookFormDevTool(
+                  FormEntity.activeReactHookFormDevTool.addOne
+                )
+              }
+            >
+              Form dev tool on
+            </MaterialUI.Button>
+          </MaterialUI.Box>
+        </MaterialUI.Box>
         <MaterialUI.Typography variant="subtitle1">
           accepts a single entity, and adds it.
         </MaterialUI.Typography>
@@ -27,7 +48,22 @@ export const Component = (): React.ReactElement => {
       </MaterialUI.Box>
 
       <MaterialUI.Box marginTop={6}>
-        <MaterialUI.Typography variant="h3">addMany</MaterialUI.Typography>
+        <MaterialUI.Box display="flex" alignItems="flex-end">
+          <MaterialUI.Typography variant="h3">addMany</MaterialUI.Typography>
+          <MaterialUI.Box marginLeft={1}>
+            <MaterialUI.Button
+              type="button"
+              variant="outlined"
+              onClick={() =>
+                props.updateActiveReactHookFormDevTool(
+                  FormEntity.activeReactHookFormDevTool.addMany
+                )
+              }
+            >
+              Form dev tool on
+            </MaterialUI.Button>
+          </MaterialUI.Box>
+        </MaterialUI.Box>
         <MaterialUI.Typography variant="subtitle1">
           accepts an array of entities or an object in the shape of Record
           &lt;EntityId, T&gt;, and adds them.

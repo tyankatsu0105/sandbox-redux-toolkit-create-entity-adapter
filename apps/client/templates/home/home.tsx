@@ -8,11 +8,12 @@ import * as Componnets from '~client/components';
 // ===============================
 // types
 // ===============================
+type Props = {};
 
 // ===============================
 // component
 // ===============================
-export const Component = (): React.ReactElement => {
+export const Component = (props: Props): React.ReactElement => {
   const [isActiveTab, setIsActiveTab] = React.useState(0);
 
   const handleChangeActiveTab = React.useCallback((_, activeTab: number) => {
