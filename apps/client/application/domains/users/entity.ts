@@ -9,4 +9,7 @@ export type FormData = {
   addMany: {
     users: User[];
   };
+  setAll: {
+    users: User[];
+  };
 };

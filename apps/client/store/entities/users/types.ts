@@ -26,6 +26,7 @@ export type Payload = {
   action: {
     addUser: UsersEntity.User;
     addUsers: UsersEntity.User[];
+    setUsers: UsersEntity.User[];
   };
   operation: {};
 };
