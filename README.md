@@ -1,4 +1,16 @@
 - `@hookform/devtools`は本来devDependenciesに入れるものだが、検証サイトということで、dependenciesに入れている。
-  - https://github.com/react-hook-form/devtools/issues/18
-  - NODE_ENVがproductionのときにビルドに含まれないようになっているっぽいので、documentと合わせてバージョンを固定している
-  - https://github.com/react-hook-form/documentation/blob/e590e393931d4626fa568197980af87dd2dc3e76/src/components/DevTools.tsx
+- https://github.com/react-hook-form/devtools/issues/18
+  - NODE_ENVで見せないように分岐させているので、強制的に見せる場合は`import * as ReactHookFormDevTool from '@hookform/devtools/dist/index.cjs.development.js';`
+```js
+// node_modules/@hookform/devtools/dist/index.js
+
+'use strict'
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = {
+    DevTool: () => null,
+  };
+} else {
+  module.exports = require('./index.cjs.development.js')
+}
+```
