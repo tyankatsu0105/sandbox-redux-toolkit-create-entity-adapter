@@ -5,6 +5,7 @@ import * as MaterialUI from '@material-ui/core';
 import * as SelectIds from './select-ids';
 import * as SelectEntities from './select-entities';
 import * as SelectAll from './select-all';
+import * as SelectTortal from './select-tortal';
 
 import * as FormEntity from '~client/application/domains/form/entity';
 
@@ -59,6 +60,20 @@ export const Component = (props: Props): React.ReactElement => {
         </MaterialUI.Typography>
         <MaterialUI.Box marginTop={2}>
           <SelectAll.Component />
+        </MaterialUI.Box>
+      </MaterialUI.Box>
+
+      <MaterialUI.Box marginTop={6}>
+        <MaterialUI.Box display="flex" alignItems="flex-end">
+          <MaterialUI.Typography variant="h3">
+            SelectTortal
+          </MaterialUI.Typography>
+        </MaterialUI.Box>
+        <MaterialUI.Typography variant="subtitle1">
+          returns the total number of entities being stored in this state.
+        </MaterialUI.Typography>
+        <MaterialUI.Box marginTop={2}>
+          <SelectTortal.Component />
         </MaterialUI.Box>
       </MaterialUI.Box>
     </>
