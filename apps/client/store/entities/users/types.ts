@@ -29,7 +29,9 @@ export type Payload = {
     addUser: UsersEntity.User;
     addUsers: UsersEntity.User[];
     setUsers: UsersEntity.User[];
+
     selectId: UsersEntity.User['id'];
+
     updateUser: {
       id: UsersEntity.User['id'];
       changes: UsersEntity.User;
@@ -38,6 +40,9 @@ export type Payload = {
       id: UsersEntity.User['id'];
       changes: UsersEntity.User;
     }[];
+
+    upsertUser: UsersEntity.User;
+    upsertUsers: UsersEntity.User[];
   };
   operation: {};
 };

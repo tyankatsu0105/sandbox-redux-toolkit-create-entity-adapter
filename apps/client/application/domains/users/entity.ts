@@ -9,12 +9,20 @@ export type FormData = {
   addMany: {
     users: User[];
   };
+
   setAll: {
     users: User[];
   };
+
   selectId: Pick<User, 'id'>;
+
   updateOne: User;
   updateMany: {
+    users: User[];
+  };
+
+  upsertOne: User;
+  upsertMany: {
     users: User[];
   };
 };

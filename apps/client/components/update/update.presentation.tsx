@@ -4,7 +4,8 @@ import * as MaterialUI from '@material-ui/core';
 
 import * as UpdateOne from './update-one';
 import * as UpdateMany from './update-many';
-import * as SetAll from './set-all';
+import * as UpsertOne from './upsert-one';
+import * as UpsertMany from './upsert-many';
 
 import * as FormEntity from '~client/application/domains/form/entity';
 
@@ -100,7 +101,7 @@ export const Component = (props: Props): React.ReactElement => {
           values. If the entity does not exist, it will be added.
         </MaterialUI.Typography>
         <MaterialUI.Box marginTop={2}>
-          <SetAll.Component />
+          <UpsertOne.Component />
         </MaterialUI.Box>
       </MaterialUI.Box>
 
@@ -126,7 +127,7 @@ export const Component = (props: Props): React.ReactElement => {
           Record&lt;EntityId, T&gt; that will be shallowly upserted.
         </MaterialUI.Typography>
         <MaterialUI.Box marginTop={2}>
-          <SetAll.Component />
+          <UpsertMany.Component />
         </MaterialUI.Box>
       </MaterialUI.Box>
     </>

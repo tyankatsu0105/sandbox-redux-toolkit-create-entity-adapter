@@ -13,7 +13,7 @@ import * as FormEntity from '~client/application/domains/form/entity';
 
 import * as UIForm from '~client/store/ui/form';
 
-import * as Presentation from './set-all.presentation';
+import * as Presentation from './upsert-many.presentation';
 
 // ===============================
 // types
@@ -22,12 +22,12 @@ import * as Presentation from './set-all.presentation';
 // ===============================
 // schema
 // ===============================
-const schema = yup.object().shape<UsersEntity.FormData['addMany']>({
+const schema = yup.object().shape<UsersEntity.FormData['upsertMany']>({
   users: yup.array().of(
     yup.object().shape({
-      id: yup.number().positive().integer().required(),
-      name: yup.string().required(),
-      age: yup.number().positive().integer().required(),
+      id: yup.number().positive().integer(),
+      name: yup.string(),
+      age: yup.number().positive().integer(),
     })
   ),
 });
@@ -42,14 +42,14 @@ export const Component = (): React.ReactElement => {
     UIForm.activeReactHookFormDevToolSelector
   );
 
-  const hookFormMethods = ReactHookForm.useForm<UsersEntity.FormData['setAll']>(
-    {
-      resolver: yupResolver(schema),
-      defaultValues: {
-        users: [{}],
-      },
-    }
-  );
+  const hookFormMethods = ReactHookForm.useForm<
+    UsersEntity.FormData['upsertMany']
+  >({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      users: [{}],
+    },
+  });
 
   const hookFormMethodsArray = ReactHookForm.useFieldArray({
     control: hookFormMethods.control,
@@ -65,7 +65,7 @@ export const Component = (): React.ReactElement => {
   });
 
   const onSubmit = hookFormMethods.handleSubmit((data) => {
-    dispatch(EntitiesUsers.actions.setUsers(data.users));
+    dispatch(EntitiesUsers.actions.upsertUsers(data.users));
   });
 
   return (
@@ -76,7 +76,7 @@ export const Component = (): React.ReactElement => {
         hookFormMethodsArray={hookFormMethodsArray}
       />
       {activeReactHookFormDevTool ===
-        FormEntity.activeReactHookFormDevTool.setAll && (
+        FormEntity.activeReactHookFormDevTool.upsertMany && (
         <ReactHookFormDevTool.DevTool control={hookFormMethods.control} />
       )}
     </>

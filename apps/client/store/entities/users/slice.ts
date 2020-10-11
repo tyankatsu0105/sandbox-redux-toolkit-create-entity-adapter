@@ -127,6 +127,34 @@ const slice = ReduxToolkit.createSlice({
         state.status = Status.INVALID;
       }
     },
+    upsertUser: (
+      state,
+      action: ReduxToolkit.PayloadAction<Types.Payload['action']['upsertUser']>
+    ) => {
+      state.status = Status.PRISTINE;
+
+      state.status = Status.SUBMITTING;
+      try {
+        adapter.upsertOne(state, action.payload);
+        state.status = Status.SUCCESS;
+      } catch (error) {
+        state.status = Status.INVALID;
+      }
+    },
+    upsertUsers: (
+      state,
+      action: ReduxToolkit.PayloadAction<Types.Payload['action']['upsertUsers']>
+    ) => {
+      state.status = Status.PRISTINE;
+
+      state.status = Status.SUBMITTING;
+      try {
+        adapter.upsertMany(state, action.payload);
+        state.status = Status.SUCCESS;
+      } catch (error) {
+        state.status = Status.INVALID;
+      }
+    },
   },
 });
 
