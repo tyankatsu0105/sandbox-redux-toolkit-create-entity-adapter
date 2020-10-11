@@ -52,7 +52,7 @@ export const Component = (props: Props): React.ReactElement => {
                 </MaterialUI.Box>
               </Componnets.TabPanel.Component>
 
-              {/* <Componnets.TabPanel.Component hidden={isActiveTab !== 2}>
+              <Componnets.TabPanel.Component hidden={isActiveTab !== 2}>
                 <MaterialUI.Typography variant="h2">
                   Update
                 </MaterialUI.Typography>
@@ -61,7 +61,7 @@ export const Component = (props: Props): React.ReactElement => {
                 </MaterialUI.Box>
               </Componnets.TabPanel.Component>
 
-              <Componnets.TabPanel.Component hidden={isActiveTab !== 3}>
+              {/* <Componnets.TabPanel.Component hidden={isActiveTab !== 3}>
                 <MaterialUI.Typography variant="h2">
                   Delete
                 </MaterialUI.Typography>
