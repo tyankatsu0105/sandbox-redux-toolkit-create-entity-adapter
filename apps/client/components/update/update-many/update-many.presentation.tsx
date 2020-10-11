@@ -46,13 +46,16 @@ export const Component = (props: Props): React.ReactElement => {
               <ReactHookForm.Controller
                 name={`users[${index}].id`}
                 control={props.hookFormMethods.control}
-                as={
+                render={({ value, onChange, name }) => (
                   <MaterialUI.TextField
                     select
+                    name={name}
                     label="id"
                     variant="outlined"
                     type="number"
                     inputRef={props.hookFormMethods.register()}
+                    onChange={onChange}
+                    value={value}
                     fullWidth
                     error={
                       props.hookFormMethods.errors.users &&
@@ -66,13 +69,13 @@ export const Component = (props: Props): React.ReactElement => {
                       props.hookFormMethods.errors.users[index].id.message
                     }
                   >
-                    {props.ids?.map((id) => (
+                    {props.ids.map((id) => (
                       <MaterialUI.MenuItem key={id} value={id}>
                         {id}
                       </MaterialUI.MenuItem>
                     ))}
                   </MaterialUI.TextField>
-                }
+                )}
               />
             </MaterialUI.Box>
           </MaterialUI.Box>
