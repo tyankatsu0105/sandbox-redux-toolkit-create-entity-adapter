@@ -52,23 +52,23 @@ export const Component = (props: Props): React.ReactElement => {
                 </MaterialUI.Box>
               </Componnets.TabPanel.Component>
 
-              <Componnets.TabPanel.Component hidden={isActiveTab !== 2}>
+              {/* <Componnets.TabPanel.Component hidden={isActiveTab !== 2}>
                 <MaterialUI.Typography variant="h2">
                   Update
                 </MaterialUI.Typography>
                 <MaterialUI.Box marginTop={2}>
                   <Componnets.Update.Component />
                 </MaterialUI.Box>
-              </Componnets.TabPanel.Component>
+              </Componnets.TabPanel.Component> */}
 
-              {/* <Componnets.TabPanel.Component hidden={isActiveTab !== 3}>
+              <Componnets.TabPanel.Component hidden={isActiveTab !== 3}>
                 <MaterialUI.Typography variant="h2">
                   Delete
                 </MaterialUI.Typography>
                 <MaterialUI.Box marginTop={2}>
                   <Componnets.Delete.Component />
                 </MaterialUI.Box>
-              </Componnets.TabPanel.Component> */}
+              </Componnets.TabPanel.Component>
             </MaterialUI.Box>
           </MaterialUI.Grid>
 
