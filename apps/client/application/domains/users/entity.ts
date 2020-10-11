@@ -14,5 +14,3 @@ export type FormData = {
   };
   selectId: Pick<User, 'id'>;
 };
-
-export type InputStyle = 'input' | 'select';

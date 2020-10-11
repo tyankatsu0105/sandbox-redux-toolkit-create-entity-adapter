@@ -99,6 +99,20 @@ const slice = ReduxToolkit.createSlice({
         state.status = Status.INVALID;
       }
     },
+    updateUser: (
+      state,
+      action: ReduxToolkit.PayloadAction<Types.Payload['action']['updateUser']>
+    ) => {
+      state.status = Status.PRISTINE;
+
+      state.status = Status.SUBMITTING;
+      try {
+        adapter.updateOne(state, action.payload);
+        state.status = Status.SUCCESS;
+      } catch (error) {
+        state.status = Status.INVALID;
+      }
+    },
   },
 });
 

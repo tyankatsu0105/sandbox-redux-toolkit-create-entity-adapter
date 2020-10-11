@@ -31,16 +31,6 @@ const schema = yup.object().shape<UsersEntity.FormData['selectId']>({
 // ===============================
 export const Component = (props): React.ReactElement => {
   const dispatch = ReactRedux.useDispatch();
-  const [inputStyle, setInputStyle] = React.useState<UsersEntity.InputStyle>(
-    'input'
-  );
-
-  const handleChangeInputStyle = React.useCallback(
-    (inputStyle: UsersEntity.InputStyle) => {
-      setInputStyle(inputStyle);
-    },
-    []
-  );
 
   const activeReactHookFormDevTool = ReactRedux.useSelector(
     UIForm.activeReactHookFormDevToolSelector
@@ -70,8 +60,6 @@ export const Component = (props): React.ReactElement => {
         hookFormMethods={hookFormMethods}
         entityByID={entityByID}
         ids={ids}
-        inputStyle={inputStyle}
-        handleChangeInputStyle={handleChangeInputStyle}
       />
       {activeReactHookFormDevTool ===
         FormEntity.activeReactHookFormDevTool.SelectById && (

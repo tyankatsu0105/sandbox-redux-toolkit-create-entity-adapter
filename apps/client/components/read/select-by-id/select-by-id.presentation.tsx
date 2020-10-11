@@ -27,8 +27,6 @@ type Props = {
   ids: ReturnType<
     ReduxToolkit.EntitySelectors<UsersEntity.User, Store.RootState>['selectIds']
   >;
-  inputStyle: UsersEntity.InputStyle;
-  handleChangeInputStyle: (inputStyle: UsersEntity.InputStyle) => void;
 };
 
 // ===============================
@@ -37,69 +35,32 @@ type Props = {
 export const Component = (props: Props): React.ReactElement => {
   return (
     <>
-      <MaterialUI.Box display="flex">
-        <MaterialUI.Box>
-          <MaterialUI.Button
-            variant="contained"
-            color="primary"
-            type="button"
-            onClick={() => props.handleChangeInputStyle('input')}
-          >
-            input
-          </MaterialUI.Button>
-        </MaterialUI.Box>
-
-        <MaterialUI.Box marginLeft={2}>
-          <MaterialUI.Button
-            variant="contained"
-            color="primary"
-            type="button"
-            onClick={() => props.handleChangeInputStyle('select')}
-          >
-            select
-          </MaterialUI.Button>
-        </MaterialUI.Box>
-      </MaterialUI.Box>
       <form onSubmit={props.onSubmit}>
         <MaterialUI.Box marginTop={1}>
-          {props.inputStyle === 'input' && (
-            <MaterialUI.TextField
+          <MaterialUI.Box width={218}>
+            <ReactHookForm.Controller
               name="id"
-              label="input id"
-              variant="outlined"
-              type="number"
-              inputRef={props.hookFormMethods.register}
-              error={!!props.hookFormMethods.errors.id}
-              helperText={props.hookFormMethods.errors.id?.message}
+              control={props.hookFormMethods.control}
+              as={
+                <MaterialUI.TextField
+                  select
+                  label="select id"
+                  variant="outlined"
+                  type="number"
+                  inputRef={props.hookFormMethods.register}
+                  fullWidth
+                  error={!!props.hookFormMethods.errors.id}
+                  helperText={props.hookFormMethods.errors.id?.message}
+                >
+                  {props.ids.map((id) => (
+                    <MaterialUI.MenuItem key={id} value={id}>
+                      {id}
+                    </MaterialUI.MenuItem>
+                  ))}
+                </MaterialUI.TextField>
+              }
             />
-          )}
-
-          {props.inputStyle === 'select' && (
-            <MaterialUI.Box width={218}>
-              <ReactHookForm.Controller
-                name="id"
-                control={props.hookFormMethods.control}
-                as={
-                  <MaterialUI.TextField
-                    select
-                    label="select id"
-                    variant="outlined"
-                    type="number"
-                    inputRef={props.hookFormMethods.register}
-                    fullWidth
-                    error={!!props.hookFormMethods.errors.id}
-                    helperText={props.hookFormMethods.errors.id?.message}
-                  >
-                    {props.ids.map((id) => (
-                      <MaterialUI.MenuItem key={id} value={id}>
-                        {id}
-                      </MaterialUI.MenuItem>
-                    ))}
-                  </MaterialUI.TextField>
-                }
-              />
-            </MaterialUI.Box>
-          )}
+          </MaterialUI.Box>
         </MaterialUI.Box>
 
         <MaterialUI.Box marginTop={2}>

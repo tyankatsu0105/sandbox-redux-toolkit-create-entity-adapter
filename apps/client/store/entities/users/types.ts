@@ -30,6 +30,10 @@ export type Payload = {
     addUsers: UsersEntity.User[];
     setUsers: UsersEntity.User[];
     selectId: UsersEntity.User['id'];
+    updateUser: {
+      id: UsersEntity.User['id'];
+      changes: UsersEntity.User;
+    };
   };
   operation: {};
 };
