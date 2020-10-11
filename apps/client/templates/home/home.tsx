@@ -52,16 +52,16 @@ export const Component = (props: Props): React.ReactElement => {
                 </MaterialUI.Box>
               </Componnets.TabPanel.Component>
 
-              {/* <Componnets.TabPanel.Component hidden={isActiveTab !== 2}>
+              <Componnets.TabPanel.Component hidden={isActiveTab !== 2}>
                 <MaterialUI.Typography variant="h2">
                   Update
                 </MaterialUI.Typography>
                 <MaterialUI.Box marginTop={2}>
                   <Componnets.Update.Component />
                 </MaterialUI.Box>
-              </Componnets.TabPanel.Component> */}
+              </Componnets.TabPanel.Component>
 
-              <Componnets.TabPanel.Component hidden={isActiveTab !== 3}>
+              {/* <Componnets.TabPanel.Component hidden={isActiveTab !== 3}>
                 <MaterialUI.Typography variant="h2">
                   Delete
                 </MaterialUI.Typography>
@@ -70,7 +70,7 @@ export const Component = (props: Props): React.ReactElement => {
                 </MaterialUI.Box>
               </Componnets.TabPanel.Component>
             </MaterialUI.Box>
-          </MaterialUI.Grid>
+          </MaterialUI.Grid> */}
 
           <MaterialUI.Grid item xs={6}>
             <StyledCard>
