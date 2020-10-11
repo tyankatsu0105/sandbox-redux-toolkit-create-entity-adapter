@@ -83,7 +83,7 @@ export const Component = (): React.ReactElement => {
         ids={ids}
       />
       {activeReactHookFormDevTool ===
-        FormEntity.activeReactHookFormDevTool.addMany && (
+        FormEntity.activeReactHookFormDevTool.updateMany && (
         <ReactHookFormDevTool.DevTool control={hookFormMethods.control} />
       )}
     </>
