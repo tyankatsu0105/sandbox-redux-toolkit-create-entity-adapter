@@ -51,7 +51,7 @@ export const Component = (props: Props): React.ReactElement => {
         </MaterialUI.Box>
       </MaterialUI.Box>
 
-      {/* <MaterialUI.Box marginTop={6}>
+      <MaterialUI.Box marginTop={6}>
         <MaterialUI.Box display="flex" alignItems="flex-end">
           <MaterialUI.Typography variant="h3">updateMany</MaterialUI.Typography>
           <MaterialUI.Box marginLeft={1}>
@@ -75,7 +75,7 @@ export const Component = (props: Props): React.ReactElement => {
         <MaterialUI.Box marginTop={2}>
           <UpdateMany.Component />
         </MaterialUI.Box>
-      </MaterialUI.Box> */}
+      </MaterialUI.Box>
 
       {/* <MaterialUI.Box marginTop={6}>
         <MaterialUI.Box display="flex" alignItems="flex-end">
