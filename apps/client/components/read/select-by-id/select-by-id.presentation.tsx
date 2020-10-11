@@ -124,6 +124,6 @@ export const Component = (props: Props): React.ReactElement => {
 // styles
 // ===============================
 const StyledPre = styled.pre`
-  height: 100px;
+  height: 300px;
   overflow: scroll;
 `;
