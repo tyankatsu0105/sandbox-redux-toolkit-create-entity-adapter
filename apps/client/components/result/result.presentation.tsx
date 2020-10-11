@@ -10,6 +10,8 @@ import * as Store from '~client/store';
 
 type Props = {
   state: Store.RootState;
+  handleAddMockData: () => void;
+  isAddMockData: boolean;
 };
 // ===============================
 // component
@@ -18,7 +20,19 @@ type Props = {
 export const Component = (props: Props): React.ReactElement => {
   return (
     <>
-      <MaterialUI.Divider />
+      <MaterialUI.Box display="flex" justifyContent="flex-end">
+        <MaterialUI.Button
+          onClick={props.handleAddMockData}
+          variant="contained"
+          type="button"
+          disabled={props.isAddMockData}
+        >
+          {props.isAddMockData ? 'Added mock data' : 'Add mock data'}
+        </MaterialUI.Button>
+      </MaterialUI.Box>
+      <MaterialUI.Box marginTop={2} marginBottom={2}>
+        <MaterialUI.Divider />
+      </MaterialUI.Box>
       <MaterialUI.Paper>
         <StyledPre>
           <MaterialUI.Typography variant="subtitle2">

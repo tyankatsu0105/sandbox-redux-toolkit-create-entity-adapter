@@ -10,7 +10,7 @@ export default class CustomDocument extends Document<{
       <Html>
         <Head>
           {this.props.styleTags}
-          <title>Welcome to client!</title>
+          <title>Redux Toolkit createEntityAdapter CRUD関数使い方</title>
           <link
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
             rel="stylesheet"

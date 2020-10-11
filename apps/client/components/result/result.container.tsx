@@ -4,6 +4,8 @@ import * as ReactRedux from 'react-redux';
 import * as Presentaion from './result.presentation';
 
 import { stateSelector } from '~client/store/selectors';
+import * as EntitiesUsers from '~client/store/entities/users';
+import { mockData } from './mock-data';
 
 // ===============================
 // types
@@ -13,9 +15,22 @@ import { stateSelector } from '~client/store/selectors';
 // component
 // ===============================
 export const Component = (): React.ReactElement => {
+  const dispatch = ReactRedux.useDispatch();
+  const [isAddMockData, setIsAddMockData] = React.useState(false);
   const state = ReactRedux.useSelector(stateSelector);
 
-  return <Presentaion.Component state={state} />;
+  const handleAddMockData = React.useCallback(() => {
+    setIsAddMockData(true);
+    dispatch(EntitiesUsers.actions.addUsers(mockData));
+  }, [dispatch]);
+
+  return (
+    <Presentaion.Component
+      state={state}
+      handleAddMockData={handleAddMockData}
+      isAddMockData={isAddMockData}
+    />
+  );
 };
 
 // ===============================
