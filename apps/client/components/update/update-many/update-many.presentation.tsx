@@ -41,7 +41,7 @@ export const Component = (props: Props): React.ReactElement => {
             </MaterialUI.Box>
           )}
 
-          {/* <MaterialUI.Box>
+          <MaterialUI.Box>
             <MaterialUI.Box width={218}>
               <ReactHookForm.Controller
                 name={`users[${index}].id`}
@@ -66,7 +66,7 @@ export const Component = (props: Props): React.ReactElement => {
                       props.hookFormMethods.errors.users[index].id.message
                     }
                   >
-                    {props.ids.map((id) => (
+                    {props.ids?.map((id) => (
                       <MaterialUI.MenuItem key={id} value={id}>
                         {id}
                       </MaterialUI.MenuItem>
@@ -75,7 +75,7 @@ export const Component = (props: Props): React.ReactElement => {
                 }
               />
             </MaterialUI.Box>
-          </MaterialUI.Box> */}
+          </MaterialUI.Box>
 
           <MaterialUI.Box marginTop={2}>
             <MaterialUI.TextField
