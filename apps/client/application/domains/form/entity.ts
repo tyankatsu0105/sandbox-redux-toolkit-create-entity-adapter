@@ -11,4 +11,7 @@ export enum activeReactHookFormDevTool {
 
   upsertOne,
   upsertMany,
+
+  removeOne,
+  removeMany,
 }

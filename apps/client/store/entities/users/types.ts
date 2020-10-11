@@ -43,6 +43,9 @@ export type Payload = {
 
     upsertUser: UsersEntity.User;
     upsertUsers: UsersEntity.User[];
+
+    removeUser: UsersEntity.User['id'];
+    removeUsers: UsersEntity.User['id'][];
   };
   operation: {};
 };

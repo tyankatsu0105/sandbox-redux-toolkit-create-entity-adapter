@@ -25,4 +25,9 @@ export type FormData = {
   upsertMany: {
     users: User[];
   };
+
+  removeOne: Pick<User, 'id'>;
+  removeMany: {
+    users: Pick<User, 'id'>[];
+  };
 };

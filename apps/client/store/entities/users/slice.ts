@@ -155,6 +155,34 @@ const slice = ReduxToolkit.createSlice({
         state.status = Status.INVALID;
       }
     },
+    removeUser: (
+      state,
+      action: ReduxToolkit.PayloadAction<Types.Payload['action']['removeUser']>
+    ) => {
+      state.status = Status.PRISTINE;
+
+      state.status = Status.SUBMITTING;
+      try {
+        adapter.removeOne(state, action.payload);
+        state.status = Status.SUCCESS;
+      } catch (error) {
+        state.status = Status.INVALID;
+      }
+    },
+    removeUsers: (
+      state,
+      action: ReduxToolkit.PayloadAction<Types.Payload['action']['removeUsers']>
+    ) => {
+      state.status = Status.PRISTINE;
+
+      state.status = Status.SUBMITTING;
+      try {
+        adapter.removeMany(state, action.payload);
+        state.status = Status.SUCCESS;
+      } catch (error) {
+        state.status = Status.INVALID;
+      }
+    },
   },
 });
 
