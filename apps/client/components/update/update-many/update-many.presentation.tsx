@@ -41,7 +41,7 @@ export const Component = (props: Props): React.ReactElement => {
             </MaterialUI.Box>
           )}
 
-          <MaterialUI.Box>
+          {/* <MaterialUI.Box>
             <MaterialUI.Box width={218}>
               <ReactHookForm.Controller
                 name={`users[${index}].id`}
@@ -75,7 +75,7 @@ export const Component = (props: Props): React.ReactElement => {
                 }
               />
             </MaterialUI.Box>
-          </MaterialUI.Box>
+          </MaterialUI.Box> */}
 
           <MaterialUI.Box marginTop={2}>
             <MaterialUI.TextField
