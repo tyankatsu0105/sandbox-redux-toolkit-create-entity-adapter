@@ -44,7 +44,7 @@ export const Component = (props: Props): React.ReactElement => {
                   <Componnets.Create.Component />
                 </MaterialUI.Box>
               </Componnets.TabPanel.Component>
-
+              {/*
               <Componnets.TabPanel.Component hidden={isActiveTab !== 1}>
                 <MaterialUI.Typography variant="h2">Read</MaterialUI.Typography>
                 <MaterialUI.Box marginTop={2}>
@@ -68,7 +68,7 @@ export const Component = (props: Props): React.ReactElement => {
                 <MaterialUI.Box marginTop={2}>
                   <Componnets.Delete.Component />
                 </MaterialUI.Box>
-              </Componnets.TabPanel.Component>
+              </Componnets.TabPanel.Component> */}
             </MaterialUI.Box>
           </MaterialUI.Grid>
 
