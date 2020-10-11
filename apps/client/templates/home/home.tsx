@@ -68,9 +68,9 @@ export const Component = (props: Props): React.ReactElement => {
                 <MaterialUI.Box marginTop={2}>
                   <Componnets.Delete.Component />
                 </MaterialUI.Box>
-              </Componnets.TabPanel.Component>
+              </Componnets.TabPanel.Component> */}
             </MaterialUI.Box>
-          </MaterialUI.Grid> */}
+          </MaterialUI.Grid>
 
           <MaterialUI.Grid item xs={6}>
             <StyledCard>
