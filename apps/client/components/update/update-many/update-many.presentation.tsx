@@ -46,16 +46,13 @@ export const Component = (props: Props): React.ReactElement => {
               <ReactHookForm.Controller
                 name={`users[${index}].id`}
                 control={props.hookFormMethods.control}
-                render={({ value, onChange, name }) => (
+                render={(renderProps) => (
                   <MaterialUI.TextField
                     select
-                    name={name}
+                    {...renderProps}
                     label="id"
                     variant="outlined"
                     type="number"
-                    inputRef={props.hookFormMethods.register()}
-                    onChange={onChange}
-                    value={value}
                     fullWidth
                     error={
                       props.hookFormMethods.errors.users &&
