@@ -13,4 +13,5 @@ export type FormData = {
     users: User[];
   };
   selectId: Pick<User, 'id'>;
+  updateOne: User;
 };
