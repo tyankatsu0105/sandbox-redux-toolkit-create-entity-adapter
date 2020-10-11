@@ -46,10 +46,9 @@ export const Component = (props: Props): React.ReactElement => {
               <ReactHookForm.Controller
                 name={`users[${index}].id`}
                 control={props.hookFormMethods.control}
-                render={(renderProps) => (
+                as={
                   <MaterialUI.TextField
                     select
-                    {...renderProps}
                     label="id"
                     variant="outlined"
                     type="number"
@@ -72,7 +71,7 @@ export const Component = (props: Props): React.ReactElement => {
                       </MaterialUI.MenuItem>
                     ))}
                   </MaterialUI.TextField>
-                )}
+                }
               />
             </MaterialUI.Box>
           </MaterialUI.Box>
