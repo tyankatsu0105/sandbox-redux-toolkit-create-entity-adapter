@@ -4,6 +4,7 @@ import * as MaterialUI from '@material-ui/core';
 
 import * as SelectIds from './select-ids';
 import * as SelectEntities from './select-entities';
+import * as SelectAll from './select-all';
 
 import * as FormEntity from '~client/application/domains/form/entity';
 
@@ -45,6 +46,19 @@ export const Component = (props: Props): React.ReactElement => {
         </MaterialUI.Typography>
         <MaterialUI.Box marginTop={2}>
           <SelectEntities.Component />
+        </MaterialUI.Box>
+      </MaterialUI.Box>
+
+      <MaterialUI.Box marginTop={6}>
+        <MaterialUI.Box display="flex" alignItems="flex-end">
+          <MaterialUI.Typography variant="h3">selectAll</MaterialUI.Typography>
+        </MaterialUI.Box>
+        <MaterialUI.Typography variant="subtitle1">
+          maps over the state.ids array, and returns an array of entities in the
+          same order.
+        </MaterialUI.Typography>
+        <MaterialUI.Box marginTop={2}>
+          <SelectAll.Component />
         </MaterialUI.Box>
       </MaterialUI.Box>
     </>

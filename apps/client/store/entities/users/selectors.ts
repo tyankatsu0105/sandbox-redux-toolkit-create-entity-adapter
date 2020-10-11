@@ -6,6 +6,9 @@ import * as UsersEntity from '~client/application/domains/users/entity';
 
 const featureStateSelector = (state: Store.RootState) => state.entities.users;
 
+/**
+ * Note: adapterSelectorをexportして使ってもいい
+ */
 const adapterSelector = Slice.adapter.getSelectors(featureStateSelector);
 
 export const idsSelector = adapterSelector.selectIds;
