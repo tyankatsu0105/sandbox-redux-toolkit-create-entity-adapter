@@ -52,7 +52,6 @@ export const Component = (props: Props): React.ReactElement => {
                     label="id"
                     variant="outlined"
                     type="number"
-                    inputRef={props.hookFormMethods.register()}
                     fullWidth
                     error={
                       props.hookFormMethods.errors.users &&

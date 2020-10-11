@@ -47,7 +47,6 @@ export const Component = (props: Props): React.ReactElement => {
                   label="select id"
                   variant="outlined"
                   type="number"
-                  inputRef={props.hookFormMethods.register}
                   fullWidth
                   error={!!props.hookFormMethods.errors.id}
                   helperText={props.hookFormMethods.errors.id?.message}
