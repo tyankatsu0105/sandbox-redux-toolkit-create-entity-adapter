@@ -57,7 +57,7 @@ export const Component = (props): React.ReactElement => {
   });
 
   const selectedId = Store.useSelector(EntitiesUsers.selectedIdSelector);
-  const { entityByID } = Store.useSelector((state) =>
+  const entityByID = Store.useSelector((state) =>
     EntitiesUsers.entityByIDSelector(state, selectedId)
   );
 

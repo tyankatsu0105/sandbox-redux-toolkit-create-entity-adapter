@@ -29,5 +29,5 @@ export const entityByIDSelector = (
 ) => {
   const entityByID = adapterSelector.selectById(state, id);
 
-  return { entityByID };
+  return entityByID;
 };
