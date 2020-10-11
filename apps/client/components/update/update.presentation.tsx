@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as MaterialUI from '@material-ui/core';
 
 import * as UpdateOne from './update-one';
-import * as AddMany from './add-many';
+import * as UpdateMany from './update-many';
 import * as SetAll from './set-all';
 
 import * as FormEntity from '~client/application/domains/form/entity';
@@ -72,7 +72,7 @@ export const Component = (props: Props): React.ReactElement => {
           all corresponding entities.
         </MaterialUI.Typography>
         <MaterialUI.Box marginTop={2}>
-          <AddMany.Component />
+          <UpdateMany.Component />
         </MaterialUI.Box>
       </MaterialUI.Box>
 

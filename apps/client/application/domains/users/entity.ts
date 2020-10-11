@@ -14,4 +14,7 @@ export type FormData = {
   };
   selectId: Pick<User, 'id'>;
   updateOne: User;
+  updateMany: {
+    users: User[];
+  };
 };

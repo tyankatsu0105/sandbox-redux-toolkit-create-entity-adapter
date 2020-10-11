@@ -1,8 +1,11 @@
 import * as React from 'react';
+import * as ReduxToolkit from '@reduxjs/toolkit';
 
 import * as MaterialUI from '@material-ui/core';
 
 import * as ReactHookForm from 'react-hook-form';
+
+import * as Store from '~client/store';
 import * as UsersEntity from '~client/application/domains/users/entity';
 
 // ===============================
@@ -14,6 +17,9 @@ type Props = {
     UsersEntity.FormData['addMany']
   >;
   hookFormMethodsArray: ReturnType<typeof ReactHookForm.useFieldArray>;
+  ids: ReturnType<
+    ReduxToolkit.EntitySelectors<UsersEntity.User, Store.RootState>['selectIds']
+  >;
 };
 
 // ===============================
@@ -36,25 +42,41 @@ export const Component = (props: Props): React.ReactElement => {
           )}
 
           <MaterialUI.Box>
-            <MaterialUI.TextField
-              name={`users[${index}].id`}
-              label="id"
-              variant="outlined"
-              type="number"
-              inputRef={props.hookFormMethods.register()}
-              error={
-                props.hookFormMethods.errors.users &&
-                props.hookFormMethods.errors.users[index] &&
-                Boolean(props.hookFormMethods.errors.users[index].id)
-              }
-              helperText={
-                props.hookFormMethods.errors.users &&
-                props.hookFormMethods.errors.users[index] &&
-                props.hookFormMethods.errors.users[index].id &&
-                props.hookFormMethods.errors.users[index].id.message
-              }
-            />
+            <MaterialUI.Box width={218}>
+              <ReactHookForm.Controller
+                name={`users[${index}].id`}
+                control={props.hookFormMethods.control}
+                as={
+                  <MaterialUI.TextField
+                    select
+                    label="id"
+                    variant="outlined"
+                    type="number"
+                    inputRef={props.hookFormMethods.register()}
+                    fullWidth
+                    error={
+                      props.hookFormMethods.errors.users &&
+                      props.hookFormMethods.errors.users[index] &&
+                      Boolean(props.hookFormMethods.errors.users[index].id)
+                    }
+                    helperText={
+                      props.hookFormMethods.errors.users &&
+                      props.hookFormMethods.errors.users[index] &&
+                      props.hookFormMethods.errors.users[index].id &&
+                      props.hookFormMethods.errors.users[index].id.message
+                    }
+                  >
+                    {props.ids.map((id) => (
+                      <MaterialUI.MenuItem key={id} value={id}>
+                        {id}
+                      </MaterialUI.MenuItem>
+                    ))}
+                  </MaterialUI.TextField>
+                }
+              />
+            </MaterialUI.Box>
           </MaterialUI.Box>
+
           <MaterialUI.Box marginTop={2}>
             <MaterialUI.TextField
               name={`users[${index}].name`}

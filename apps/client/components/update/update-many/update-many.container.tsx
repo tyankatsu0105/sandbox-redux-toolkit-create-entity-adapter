@@ -13,7 +13,7 @@ import * as FormEntity from '~client/application/domains/form/entity';
 
 import * as UIForm from '~client/store/ui/form';
 
-import * as Presentation from './add-many.presentation';
+import * as Presentation from './update-many.presentation';
 
 // ===============================
 // types
@@ -22,7 +22,7 @@ import * as Presentation from './add-many.presentation';
 // ===============================
 // schema
 // ===============================
-const schema = yup.object().shape<UsersEntity.FormData['addMany']>({
+const schema = yup.object().shape<UsersEntity.FormData['updateMany']>({
   users: yup.array().of(
     yup.object().shape({
       id: yup.number().positive().integer().required(),
@@ -38,12 +38,14 @@ const schema = yup.object().shape<UsersEntity.FormData['addMany']>({
 export const Component = (): React.ReactElement => {
   const dispatch = ReactRedux.useDispatch();
 
+  const ids = ReactRedux.useSelector(EntitiesUsers.idsSelector);
+
   const activeReactHookFormDevTool = ReactRedux.useSelector(
     UIForm.activeReactHookFormDevToolSelector
   );
 
   const hookFormMethods = ReactHookForm.useForm<
-    UsersEntity.FormData['addMany']
+    UsersEntity.FormData['updateMany']
   >({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -65,7 +67,11 @@ export const Component = (): React.ReactElement => {
   });
 
   const onSubmit = hookFormMethods.handleSubmit((data) => {
-    dispatch(EntitiesUsers.actions.addUsers(data.users));
+    const result = data.users.map((user) => ({
+      id: user.id,
+      changes: user,
+    }));
+    dispatch(EntitiesUsers.actions.updateUsers(result));
   });
 
   return (
@@ -74,6 +80,7 @@ export const Component = (): React.ReactElement => {
         onSubmit={onSubmit}
         hookFormMethods={hookFormMethods}
         hookFormMethodsArray={hookFormMethodsArray}
+        ids={ids}
       />
       {activeReactHookFormDevTool ===
         FormEntity.activeReactHookFormDevTool.addMany && (

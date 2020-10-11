@@ -113,6 +113,20 @@ const slice = ReduxToolkit.createSlice({
         state.status = Status.INVALID;
       }
     },
+    updateUsers: (
+      state,
+      action: ReduxToolkit.PayloadAction<Types.Payload['action']['updateUsers']>
+    ) => {
+      state.status = Status.PRISTINE;
+
+      state.status = Status.SUBMITTING;
+      try {
+        adapter.updateMany(state, action.payload);
+        state.status = Status.SUCCESS;
+      } catch (error) {
+        state.status = Status.INVALID;
+      }
+    },
   },
 });
 

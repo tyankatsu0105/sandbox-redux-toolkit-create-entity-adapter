@@ -37,7 +37,7 @@ export const Component = (props: Props): React.ReactElement => {
             as={
               <MaterialUI.TextField
                 select
-                label="select id"
+                label="id"
                 variant="outlined"
                 type="number"
                 inputRef={props.hookFormMethods.register}
