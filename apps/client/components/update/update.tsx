@@ -10,7 +10,7 @@ import * as MaterialUI from '@material-ui/core';
 // ===============================
 // component
 // ===============================
-export const Component: React.FC = (props) => {
+export const Component = (props): React.ReactElement => {
   return <div>aaaaaaaaa</div>;
 };
 

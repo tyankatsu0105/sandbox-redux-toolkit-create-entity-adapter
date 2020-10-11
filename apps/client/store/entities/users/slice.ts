@@ -30,6 +30,7 @@ export const adapter = ReduxToolkit.createEntityAdapter<UsersEntity.User>({
 
 export const initialState: Types.InitialState = adapter.getInitialState({
   status: Status.PRISTINE,
+  selectedId: undefined,
 });
 
 const name = `${Constants.parentsKey}/${Constants.featureKey}`;
@@ -79,6 +80,20 @@ const slice = ReduxToolkit.createSlice({
       state.status = Status.SUBMITTING;
       try {
         adapter.setAll(state, action.payload);
+        state.status = Status.SUCCESS;
+      } catch (error) {
+        state.status = Status.INVALID;
+      }
+    },
+    selectId: (
+      state,
+      action: ReduxToolkit.PayloadAction<Types.Payload['action']['selectId']>
+    ) => {
+      state.status = Status.PRISTINE;
+
+      state.status = Status.SUBMITTING;
+      try {
+        state.selectedId = action.payload;
         state.status = Status.SUCCESS;
       } catch (error) {
         state.status = Status.INVALID;

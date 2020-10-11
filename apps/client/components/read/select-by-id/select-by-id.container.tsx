@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactRedux from 'react-redux';
+import * as Store from '~client/store';
 
 import * as ReactHookForm from 'react-hook-form';
 import * as ReactHookFormDevTool from '@hookform/devtools/dist/index.cjs.development.js';
@@ -12,7 +13,7 @@ import * as FormEntity from '~client/application/domains/form/entity';
 
 import * as UIForm from '~client/store/ui/form';
 
-import * as Presentation from './add-one.presentation';
+import * as Presentation from './select-by-id.presentation';
 
 // ===============================
 // types
@@ -21,10 +22,8 @@ import * as Presentation from './add-one.presentation';
 // ===============================
 // schema
 // ===============================
-const schema = yup.object().shape<UsersEntity.FormData['addOne']>({
+const schema = yup.object().shape<UsersEntity.FormData['selectId']>({
   id: yup.number().integer().required(),
-  name: yup.string().required(),
-  age: yup.number().positive().integer().required(),
 });
 
 // ===============================
@@ -32,29 +31,50 @@ const schema = yup.object().shape<UsersEntity.FormData['addOne']>({
 // ===============================
 export const Component = (props): React.ReactElement => {
   const dispatch = ReactRedux.useDispatch();
+  const [inputStyle, setInputStyle] = React.useState<UsersEntity.InputStyle>(
+    'input'
+  );
+
+  const handleChangeInputStyle = React.useCallback(
+    (inputStyle: UsersEntity.InputStyle) => {
+      setInputStyle(inputStyle);
+    },
+    []
+  );
 
   const activeReactHookFormDevTool = ReactRedux.useSelector(
     UIForm.activeReactHookFormDevToolSelector
   );
 
-  const hookFormMethods = ReactHookForm.useForm<UsersEntity.FormData['addOne']>(
-    {
-      resolver: yupResolver(schema),
-    }
-  );
+  const hookFormMethods = ReactHookForm.useForm<
+    UsersEntity.FormData['selectId']
+  >({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = hookFormMethods.handleSubmit((data) => {
-    dispatch(EntitiesUsers.actions.addUser(data));
+    dispatch(EntitiesUsers.actions.selectId(data.id));
   });
+
+  const selectedId = Store.useSelector(EntitiesUsers.selectedIdSelector);
+  const { entityByID } = Store.useSelector((state) =>
+    EntitiesUsers.entityByIDSelector(state, selectedId)
+  );
+
+  const ids = ReactRedux.useSelector(EntitiesUsers.idsSelector);
 
   return (
     <>
       <Presentation.Component
         onSubmit={onSubmit}
         hookFormMethods={hookFormMethods}
+        entityByID={entityByID}
+        ids={ids}
+        inputStyle={inputStyle}
+        handleChangeInputStyle={handleChangeInputStyle}
       />
       {activeReactHookFormDevTool ===
-        FormEntity.activeReactHookFormDevTool.addOne && (
+        FormEntity.activeReactHookFormDevTool.SelectById && (
         <ReactHookFormDevTool.DevTool control={hookFormMethods.control} />
       )}
     </>

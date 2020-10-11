@@ -16,7 +16,7 @@ type Props = {};
 // ===============================
 // component
 // ===============================
-export const Component: React.FC = (props) => {
+export const Component = (props): React.ReactElement => {
   const dispatch = ReactRedux.useDispatch();
 
   const updateActiveReactHookFormDevTool = React.useCallback(

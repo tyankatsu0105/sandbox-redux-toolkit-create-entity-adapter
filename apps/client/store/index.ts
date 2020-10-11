@@ -1,3 +1,4 @@
+import * as ReactRedux from 'react-redux';
 import * as ReduxToolkit from '@reduxjs/toolkit';
 
 import * as Reducer from './reducer';
@@ -29,3 +30,9 @@ export type AsyncThunkConfig<RejectValue = unknown> = {
   extra: Middleware.ExtraArgument;
   rejectValue: RejectValue;
 };
+
+// ==================================================
+// hooks override
+// ==================================================
+export const useSelector: ReactRedux.TypedUseSelectorHook<RootState> =
+  ReactRedux.useSelector;

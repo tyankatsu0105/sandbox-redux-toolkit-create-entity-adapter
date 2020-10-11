@@ -14,7 +14,7 @@ type Props = {};
 // ===============================
 // component
 // ===============================
-export const Component: React.FC = (props) => {
+export const Component = (props): React.ReactElement => {
   const entities = ReactRedux.useSelector(EntitiesUsers.entitiesSelector);
 
   return <Presentation.Component entities={entities} />;

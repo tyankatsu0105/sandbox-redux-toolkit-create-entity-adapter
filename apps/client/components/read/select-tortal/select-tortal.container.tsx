@@ -14,7 +14,7 @@ type Props = {};
 // ===============================
 // component
 // ===============================
-export const Component: React.FC = (props) => {
+export const Component = (props): React.ReactElement => {
   const tortal = ReactRedux.useSelector(EntitiesUsers.totalSelector);
 
   return <Presentation.Component tortal={tortal} />;

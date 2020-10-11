@@ -1,3 +1,5 @@
+import * as ReduxToolkit from '@reduxjs/toolkit';
+
 import * as Store from '~client/store';
 
 import * as Slice from './slice';
@@ -15,6 +17,11 @@ export const idsSelector = adapterSelector.selectIds;
 export const entitiesSelector = adapterSelector.selectEntities;
 export const allSelector = adapterSelector.selectAll;
 export const totalSelector = adapterSelector.selectTotal;
+
+export const selectedIdSelector = ReduxToolkit.createSelector(
+  featureStateSelector,
+  (state) => state.selectedId
+);
 
 export const entityByIDSelector = (
   state: Store.RootState,

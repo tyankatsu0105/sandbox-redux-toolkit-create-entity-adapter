@@ -12,4 +12,7 @@ export type FormData = {
   setAll: {
     users: User[];
   };
+  selectId: Pick<User, 'id'>;
 };
+
+export type InputStyle = 'input' | 'select';

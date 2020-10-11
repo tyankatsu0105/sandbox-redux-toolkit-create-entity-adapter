@@ -39,6 +39,6 @@ export const Component = (props: Props): React.ReactElement => {
 // styles
 // ===============================
 const StyledPre = styled.pre`
-  height: 300px;
+  height: 100px;
   overflow: scroll;
 `;

@@ -10,10 +10,12 @@ import * as UsersEntity from '~client/application/domains/users/entity';
 export interface InitialState
   extends ReduxToolkit.EntityState<UsersEntity.User> {
   status: Status.PRISTINE;
+  selectedId: UsersEntity.User['id'];
 }
 
 export interface ValidState extends ReduxToolkit.EntityState<UsersEntity.User> {
   status: Exclude<Status, Status.PRISTINE>;
+  selectedId: UsersEntity.User['id'];
 }
 
 export type State = InitialState | ValidState;
@@ -27,6 +29,7 @@ export type Payload = {
     addUser: UsersEntity.User;
     addUsers: UsersEntity.User[];
     setUsers: UsersEntity.User[];
+    selectId: UsersEntity.User['id'];
   };
   operation: {};
 };
