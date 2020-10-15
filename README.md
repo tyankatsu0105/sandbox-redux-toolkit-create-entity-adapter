@@ -4,6 +4,9 @@ Redux Toolkit createEntityAdapter CRUD関数のplayground的なアプリケー�
 - storeに関しては以下
   - https://github.com/tyankatsu0105/sandbox-redux-toolkit-create-entity-adapter/tree/main/apps/client/store/entities/users
 
+`npx madge --image image.svg apps/client/pages/_app.tsx`
+![](image.svg)
+
 ## メモ
 - `@hookform/devtools`は本来devDependenciesに入れるものだが、検証サイトということで、dependenciesに入れている。
 - https://github.com/react-hook-form/devtools/issues/18
