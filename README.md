@@ -4,7 +4,7 @@ Redux Toolkit createEntityAdapter CRUD関数のplayground的なアプリケー�
 - storeに関しては以下
   - https://github.com/tyankatsu0105/sandbox-redux-toolkit-create-entity-adapter/tree/main/apps/client/store/entities/users
 
-`npx madge --image image.svg apps/client/pages/_app.tsx`
+`npx madge --image image.svg apps/client/pages/index.tsx`
 ![](image.svg)
 
 ## メモ
